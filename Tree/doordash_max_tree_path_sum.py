@@ -1,4 +1,6 @@
 
+from re import S
+from turtle import right
 from construct_binary_tree import ConstructBinaryTree
 '''
 Doordash:
@@ -23,14 +25,25 @@ root1 = ConstructBinaryTree.construct_binary_tree_by_horizontal_list(case1)
 #         self.val = val
 #         self.left, self.right = None, None
 
-# class Solution:
-#     def findMaxSum(self, root):
-#         if not root:
-#             return 0
-#         self.helper()
+class Solution:
+    def findMaxSum(self, root):
+        self.max_sum = 0
+        if not root:
+            return 0
+        self.helper(root)
+        return self.max_sum
     
+    def helper(self, root):
+        if not root:
+          return 0
+        left_max_sum_to_leaf = self.helper(root.left)
+        right_max_sum_to_leaf = self.helper(root.right)
+        self.max_sum = max(self.max_sum, root.val + left_max_sum_to_leaf + right_max_sum_to_leaf)
+        return max(left_max_sum_to_leaf + root.val, right_max_sum_to_leaf + root.val)
 
-#     def helper(self, root):
+solution = Solution()
+result = solution.findMaxSum(root1)
+print(result)
         
 
 
