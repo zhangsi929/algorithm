@@ -12,7 +12,7 @@ indicated by an asterisk below.
 *25   *14  *15
 47 = 25 + 2 + 5 + 15
 Follow - up
-What if any nodes in the tree can be alive instead of just the leaves?
+What if any nodes in the tree can be alive instead of just the leaves
 '''
 
 case1 = [5, 2, 0, 25, None, 14, 15]
